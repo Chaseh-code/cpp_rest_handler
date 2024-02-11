@@ -4,6 +4,7 @@
 
 - [Building Curl Library](#building-curl-library)
 - [Building Project](#building-project)
+  - [Testing Build Methods](#testing-build-methods)
 
 ## **Building Curl Library**
 ###### [Index](#index)
@@ -264,10 +265,18 @@ When building with g++ only:
 g++ -static main.cpp -DCURL_STATICLIB -I/usr/lib/curl/include /usr/lib/curl/lib/libcurl.a -lcares -lssh2 -lssl -lcrypto -lz -o src/curlman
 ```
 
+### **Testing Build Methods**
+###### [Back To Index](#index)
 
+Quick Method:
 
+1. `cd /usr/lib/cpp_rest_handler/src`
+1. `g++ -static main.cpp -DCURL_STATICLIB -I/usr/lib/curl/include /usr/lib/curl/lib/libcurl.a -lcares -lssh2 -lssl -lcrypto -lz -o curlman`
 
+GDB (Debugger) Method:
 
+1. `cd /usr/lib/cpp_rest_handler/src`
+1. `g++ -static main.cpp -DCURL_STATICLIB -I/usr/lib/curl/include /usr/lib/curl/lib/libcurl.a -lcares -lssh2 -lssl -lcrypto -lz -Wall -g -o curlman`
 
 
 

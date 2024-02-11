@@ -26,16 +26,20 @@ int main() {
     curl = curl_easy_init();
 
     cout << "Please enter the name of a website" << endl;
-    cin >> url;
+    cin >> input;
 
     while(cin.fail()) {
         cin.clear();
         cin.ignore(1000, '\n');
         cout << "Sorry, some kind of typo happened... Crazy how that happens.\n What url were you looking for?" << endl;
-        cin >> url;
+        cin >> input;
     }
 
-    
+    if(input.substr(0, 8) == HTTPS) {
+        strcpy(url, input.c_str());
+    } else {
+        strcpy(url, (HTTPS + input).c_str());
+    }
     //url.insert(0, input);
     //url.insert(0, HTTPS);
     cout << "What does my url look like: " << url << endl;
@@ -67,5 +71,6 @@ int main() {
     cout << "About to clean up libcurl" << endl;
     curl_global_cleanup();
     cout << "Clean up done for libcurl" << endl;
+    delete url;
     return 0;
 }
